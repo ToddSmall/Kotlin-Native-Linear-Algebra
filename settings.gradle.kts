@@ -1,3 +1,3 @@
 
-rootProject.name = "Kotlin_Native_Linear_Algebra"
+rootProject.name = "Kotlin-Native-Linear-Algebra"
 

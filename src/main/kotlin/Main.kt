@@ -9,7 +9,7 @@ import kotlin.system.exitProcess
 fun main(args: Array<String>) {
     println(
         "This example computes the real matrix C=alpha*A*B + beta*C using\n"
-        + "the Intel(R) MKL function dgemm, where A, B, and C are matrics and\n"
+        + "the Intel(R) MKL function dgemm, where A, B, and C are matrices and\n"
         + "alpha and beta are double precision scalars.\n"
     )
 

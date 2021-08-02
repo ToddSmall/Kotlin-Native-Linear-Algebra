@@ -3,6 +3,8 @@
 This example is based on the [Bytedeco MKL example](https://github.com/bytedeco/javacpp-presets/tree/b603f85ee36a275c19dd1cf5585b50cfe9d3b9e1/mkl)
 and was (mostly) autoconverted from Java to Kotlin by IntelliJ IDEA.
 
+Note that you do *not* have to download any MKL libraries separately.
+
 ```
 IntelliJ IDEA 2021.2 (Community Edition)
 Build #IC-212.4746.92, built on July 27, 2021
