@@ -1,6 +1,9 @@
+import kotlin.math.*
+
 import org.bytedeco.javacpp.*
 import org.bytedeco.javacpp.indexer.*
 import org.bytedeco.mkl.global.mkl_rt.*
+import kotlin.system.exitProcess
 
 
 fun main(args: Array<String>) {
@@ -25,12 +28,12 @@ fun main(args: Array<String>) {
     val A = DoublePointer(MKL_malloc(m * p * java.lang.Double.BYTES, 64))
     val B = DoublePointer(MKL_malloc(p * n * java.lang.Double.BYTES, 64))
     val C = DoublePointer(MKL_malloc(m * n * java.lang.Double.BYTES, 64))
-    if (A.isNull() || B.isNull() || C.isNull()) {
+    if (A.isNull || B.isNull || C.isNull) {
         println("\n ERROR: Can't allocate memory for matrices. Aborting... \n")
         MKL_free(A)
         MKL_free(B)
         MKL_free(C)
-        System.exit(1)
+        exitProcess(1)
     }
     println("Initializing matrix data.\n")
     val Aidx: DoubleIndexer = DoubleIndexer.create(A.capacity(m * p))
@@ -53,8 +56,8 @@ fun main(args: Array<String>) {
     println("Computations completed.\n")
 
     println("Top left corner of matrix A: ")
-    for (i in 0 until Math.min(m, 6)) {
-        for (j in 0 until Math.min(p, 6)) {
+    for (i in 0 until min(m, 6)) {
+        for (j in 0 until min(p, 6)) {
             System.out.printf("%12.0f", Aidx.get(j + i * p))
         }
         println()
@@ -62,8 +65,8 @@ fun main(args: Array<String>) {
     println()
 
     println("Top left corner of matrix B: ")
-    for (i in 0 until Math.min(p, 6)) {
-        for (j in 0 until Math.min(n, 6)) {
+    for (i in 0 until min(p, 6)) {
+        for (j in 0 until min(n, 6)) {
             System.out.printf("%12.0f", Bidx.get(j + i * n))
         }
         println()
@@ -71,8 +74,8 @@ fun main(args: Array<String>) {
     println()
 
     println("Top left corner of matrix C: ")
-    for (i in 0 until Math.min(m, 6)) {
-        for (j in 0 until Math.min(n, 6)) {
+    for (i in 0 until min(m, 6)) {
+        for (j in 0 until min(n, 6)) {
             System.out.printf("%12.5G", Cidx.get(j + i * n))
         }
         println()
@@ -84,5 +87,5 @@ fun main(args: Array<String>) {
     MKL_free(B)
     MKL_free(C)
     println("Example completed.\n")
-    System.exit(0)
+    exitProcess(0)
 }
