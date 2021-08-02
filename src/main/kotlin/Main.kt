@@ -1,7 +1,5 @@
 import kotlin.math.*
 
-import org.bytedeco.javacpp.*
-import org.bytedeco.javacpp.indexer.*
 import org.bytedeco.mkl.global.mkl_rt.*
 import kotlin.system.exitProcess
 
